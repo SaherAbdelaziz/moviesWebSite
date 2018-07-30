@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using moviesWebSite.Models;
+using moviesWebSite.ViewModels;
 
 namespace moviesWebSite.Controllers
 {
@@ -21,6 +22,16 @@ namespace moviesWebSite.Controllers
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
+        }
+
+        public ActionResult New()
+        {
+            var membershipTypes = _context.membershipTypes.ToList();
+            var viewModel = new NewCustomerViewMoel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View(viewModel);
         }
 
         public ActionResult Index()
