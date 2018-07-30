@@ -222,9 +222,14 @@
     <Compile Include="Migrations\201807300528577_addBirthDateToCustomerClass.Designer.cs">
       <DependentUpon>201807300528577_addBirthDateToCustomerClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807300614464_addMoviesDataBase.cs" />
+    <Compile Include="Migrations\201807300614464_addMoviesDataBase.Designer.cs">
+      <DependentUpon>201807300614464_addMoviesDataBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -295,6 +300,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807300528577_addBirthDateToCustomerClass.resx">
       <DependentUpon>201807300528577_addBirthDateToCustomerClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807300614464_addMoviesDataBase.resx">
+      <DependentUpon>201807300614464_addMoviesDataBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
