@@ -35,7 +35,7 @@ namespace moviesWebSite.Controllers
         public ActionResult New()
         {
             var Genres = _context.Genres.ToList();
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel()
             {
                 Genres = Genres
             };
@@ -44,8 +44,17 @@ namespace moviesWebSite.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+                
+            }
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
@@ -73,9 +82,8 @@ namespace moviesWebSite.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
             };
 
