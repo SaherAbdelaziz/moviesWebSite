@@ -26,10 +26,16 @@ namespace moviesWebSite.Controllers
             _context.Dispose();
         }
 
+        public ActionResult Index()
+        {
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            return View(customers);
+        }
+
         public ActionResult New()
         {
             var membershipTypes = _context.membershipTypes.ToList();
-            var viewModel = new CustomerFormViewMoel
+            var viewModel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipTypes
             };
@@ -58,11 +64,6 @@ namespace moviesWebSite.Controllers
             return RedirectToAction("index", "Customers");
         }
 
-        public ActionResult Index()
-        {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View(customers);
-        }
 
         public ActionResult Details(int id)
         {
@@ -85,7 +86,7 @@ namespace moviesWebSite.Controllers
                 return HttpNotFound();
             }
 
-            var viewModel = new CustomerFormViewMoel
+            var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
                 MembershipTypes = _context.membershipTypes.ToList()

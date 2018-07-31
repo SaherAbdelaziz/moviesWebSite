@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using moviesWebSite.Models;
+using moviesWebSite.ViewModels;
 
 namespace moviesWebSite.Controllers
 {
@@ -30,70 +31,44 @@ namespace moviesWebSite.Controllers
 
             return View(movies);
         }
+
+        public ActionResult New()
+        {
+            var Genres = _context.Genres.ToList();
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = Genres
+            };
+
+            return View("MovieForm" , viewModel);
+        }
+
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+            }
+
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                //Mapper.Map(movie, movieInDb);
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.GenreId = movie.GenreId;
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("index", "Movies");
+        }
         public ActionResult Details(int id)
         {
             var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
 
             return View(movie);
         }
-        /*
-        private IEnumerable<Movie> GetMovies()
-        {
-            return new List<Movie>
-            {
-                new Movie {Id = 1, Name = "Shrek"},
-                new Movie {Id = 2, Name = "Wall-e"}
-            };
-        }*/
-
-        /*
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
-            if (!pageIndex.HasValue)
-            {
-                pageIndex = 1;
-
-            }
-
-            if (string.IsNullOrWhiteSpace(sortBy))
-            {
-                sortBy = "Name";
-            }
-
-            return Content(String.Format("pageIndex = {0} & sortBy = {1} ", pageIndex, sortBy));
-        }
-
-        // GET: Movies/Random
-        public ActionResult Random()
-        {
-            var movie = new Movie() {Name = "sherk!", Id = 1};
-            var Customers = new List<Customer>()
-            {
-                new Customer {Name = "Customer 1"},
-                new Customer {Name = "Customer 2"} ,
-                new Customer {Name = "Customer 3"},
-                new Customer {Name = "Customer 4"}
-            };
-
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = Customers
-            };
-
-            
-            return View(viewModel);
-
-            //return Content("HI");
-            //return HttpNotFound();
-        }
         
-
-        [Route("movies/released/{year:regex(\\d{4})}/{month:range(1,12)}")]
-        public ActionResult ByReleaseDate(int year , int month)
-        {
-            return Content(year + "/" + month);
-        }
-        */
     }
 }
