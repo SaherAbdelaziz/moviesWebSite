@@ -6755,3 +6755,13 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+field-validation-error {
+    color: red;
+    color: black;
+    background: aqua
+}
+
+input-validation-error {
+    border: 2px solid red;
+}
