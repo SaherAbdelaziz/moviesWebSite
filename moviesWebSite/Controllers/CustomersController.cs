@@ -12,8 +12,8 @@ namespace moviesWebSite.Controllers
     public class CustomersController : Controller
     {
         // GET: Customers
-        private ApplicationDbContext _context ;
-        
+        private ApplicationDbContext _context;
+
         public CustomersController()
         {
             _context = new ApplicationDbContext();
@@ -32,6 +32,14 @@ namespace moviesWebSite.Controllers
                 MembershipTypes = membershipTypes
             };
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return RedirectToAction("index", "Customers");
         }
 
         public ActionResult Index()
