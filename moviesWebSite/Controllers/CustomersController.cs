@@ -34,7 +34,7 @@ namespace moviesWebSite.Controllers
 
         public ActionResult New()
         {
-            var membershipTypes = _context.membershipTypes.ToList();
+            var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipTypes
@@ -89,7 +89,7 @@ namespace moviesWebSite.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
-                MembershipTypes = _context.membershipTypes.ToList()
+                MembershipTypes = _context.MembershipTypes.ToList()
             };
 
             return View("CustomerForm", viewModel);

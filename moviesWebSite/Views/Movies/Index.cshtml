@@ -7,6 +7,8 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
+<p>@Html.ActionLink("Add Movie", "New", "Movies", null, new { @class = "btn btn-primary" })</p>
+
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -19,10 +21,10 @@
     <tbody>
         @foreach (var movie in Model)
         {
-        <tr>
-            <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
-            <td>@movie.Genre.Name</td>
-        </tr>
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+                <td>@movie.Genre.Name</td>
+            </tr>
         }
 
 
