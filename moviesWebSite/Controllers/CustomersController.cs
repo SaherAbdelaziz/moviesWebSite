@@ -27,11 +27,11 @@ namespace moviesWebSite.Controllers
         public ActionResult New()
         {
             var membershipTypes = _context.membershipTypes.ToList();
-            var viewModel = new NewCustomerViewMoel
+            var viewModel = new CustomerFormViewMoel
             {
                 MembershipTypes = membershipTypes
             };
-            return View(viewModel);
+            return View("CustomerForm" , viewModel);
         }
 
         [HttpPost]
@@ -60,6 +60,24 @@ namespace moviesWebSite.Controllers
             return View(customer);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new CustomerFormViewMoel
+            {
+                Customer = customer,
+                MembershipTypes = _context.membershipTypes.ToList()
+            };
+
+            return View("CustomerForm", viewModel);
+        }
+
         /*
         private IEnumerable<Customer> GetCustomers()
         {
@@ -70,6 +88,7 @@ namespace moviesWebSite.Controllers
             };
         }
         */
+
 
     }
 }
