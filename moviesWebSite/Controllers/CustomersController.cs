@@ -28,7 +28,9 @@ namespace moviesWebSite.Controllers
 
         public ActionResult Index()
         {
-            //var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            // commented as we use reading data from api to dataable and render them there
+
+            //var customers = _context.Customers.Include(c => c.MembershipType).ToList(); 
             //return View(customers);
             return View();
         }

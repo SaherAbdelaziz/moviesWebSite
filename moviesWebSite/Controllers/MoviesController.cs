@@ -27,9 +27,12 @@ namespace moviesWebSite.Controllers
 
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
+            // commented as we use reading data from api to dataable and render them there
 
-            return View(movies);
+            //var movies = _context.Movies.Include(m => m.Genre).ToList();
+
+            //return View(movies);
+            return View();
         }
 
         public ActionResult New()
