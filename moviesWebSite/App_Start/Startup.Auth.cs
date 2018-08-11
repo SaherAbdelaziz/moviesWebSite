@@ -54,9 +54,9 @@ namespace moviesWebSite
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1984184111872542",
+               appSecret: "17549a29631a01a2c57782b9d4eb5208");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
