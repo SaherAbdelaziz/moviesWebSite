@@ -246,6 +246,10 @@
     <Compile Include="Migrations\201807300614464_addMoviesDataBase.Designer.cs">
       <DependentUpon>201807300614464_addMoviesDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808111714491_SeedUsers.cs" />
+    <Compile Include="Migrations\201808111714491_SeedUsers.Designer.cs">
+      <DependentUpon>201808111714491_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -536,6 +540,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807300614464_addMoviesDataBase.resx">
       <DependentUpon>201807300614464_addMoviesDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808111714491_SeedUsers.resx">
+      <DependentUpon>201808111714491_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
