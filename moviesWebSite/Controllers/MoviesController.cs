@@ -32,9 +32,12 @@ namespace moviesWebSite.Controllers
             //var movies = _context.Movies.Include(m => m.Genre).ToList();
 
             //return View(movies);
-            return View();
+
+            return View(User.IsInRole(RoleName.CanManageMovie) ? "List" : "ReadOnlyList");
+            //return View();
         }
 
+        [Authorize(Roles = RoleName.CanManageMovie)]
         public ActionResult New()
         {
             var Genres = _context.Genres.ToList();
