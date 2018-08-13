@@ -24,11 +24,13 @@ textarea {
 }
 
 
-span.field-validation-error {
+span.field-validation-error ,
+label.error{
     color: red;
 }
 
-input.input-validation-error {
+input.input-validation-error,
+input.error{
     border: 2px solid red;
 }
 
