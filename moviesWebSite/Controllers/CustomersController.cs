@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.IO.MemoryMappedFiles;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
-using moviesWebSite.Models;
+﻿using moviesWebSite.Models;
 using moviesWebSite.ViewModels;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace moviesWebSite.Controllers
 {
@@ -32,7 +27,8 @@ namespace moviesWebSite.Controllers
 
             //var customers = _context.Customers.Include(c => c.MembershipType).ToList(); 
             //return View(customers);
-            return View();
+            return View(User.IsInRole(RoleName.CanManageMovie) ? "List" : "ReadOnlyList");
+            //return View();
         }
 
         public ActionResult New()
