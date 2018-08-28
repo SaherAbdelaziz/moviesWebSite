@@ -285,6 +285,10 @@
     <Compile Include="Migrations\201808121936157_addProbaprtyNumerAvailableInMovieClass.Designer.cs">
       <DependentUpon>201808121936157_addProbaprtyNumerAvailableInMovieClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808260411105_test.cs" />
+    <Compile Include="Migrations\201808260411105_test.Designer.cs">
+      <DependentUpon>201808260411105_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -561,6 +565,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -608,6 +613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808121936157_addProbaprtyNumerAvailableInMovieClass.resx">
       <DependentUpon>201808121936157_addProbaprtyNumerAvailableInMovieClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808260411105_test.resx">
+      <DependentUpon>201808260411105_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
