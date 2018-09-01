@@ -32,7 +32,8 @@ namespace moviesWebSite
                       "~/Content/datatables/css/datatables.bootstrap.css",
                       "~/Content/typeahead.css",
                       "~/Content/toastr/c.ss",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/cover.css"));
         }
     }
 }

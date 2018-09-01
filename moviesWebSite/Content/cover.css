@@ -1,0 +1,15 @@
+﻿.home-container {
+    min-height: 300px;
+    text-align: center;
+    background-color: #afaaaa;
+    background-image: url("/Content/Images/movies1.jpg");
+}
+
+
+.welcome {
+    min-height: 500px;
+}
+p {
+    color: #f30404;
+    font-size: 30px;
+}
